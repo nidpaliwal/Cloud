@@ -6,17 +6,17 @@ export function getCloudinaryUrl(publicId: string, transformations: Record<strin
     return '';
   }
   
-  const transformParts: string[] = [];
+  const transformCodes: string[] = [];
   Object.entries(transformations).forEach(([key, value]) => {
-    if (key === 'f') transformParts.push(value);
-    if (key === 'q') transformParts.push(value);
-    if (key === 'w') transformParts.push(`w_${value}`);
-    if (key === 'h') transformParts.push(`h_${value}`);
-    if (key === 'ar') transformParts.push(`ar_${value}`);
-    if (key === 'c') transformParts.push(`c_${value}`);
+    if (key === 'f') transformCodes.push(`f_${value}`);
+    if (key === 'q') transformCodes.push(`q_${value}`);
+    if (key === 'w') transformCodes.push(`w_${value}`);
+    if (key === 'h') transformCodes.push(`h_${value}`);
+    if (key === 'ar') transformCodes.push(`ar_${value}`);
+    if (key === 'c') transformCodes.push(`c_${value}`);
   });
   
-  const transformString = transformParts.length > 0 ? `/${transformParts.join(',')}` : '';
+  const transformString = transformCodes.length > 0 ? `/${transformCodes.join(',')}` : '';
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload${transformString}/${publicId}`;
 }
 

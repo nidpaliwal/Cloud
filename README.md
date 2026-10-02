@@ -83,7 +83,7 @@ docker-compose -f docker-compose.dev.yml up --build
 
 | Feature | Implementation |
 |---------|----------------|
-| **Generative Fill** | `e_gen_fill:prompt_<prompt>` - Replace backgrounds with AI scenes |
+| **Generative Background Replace** | `e_gen_background_replace:prompt_<prompt>` - Replace backgrounds with AI scenes |
 | **Generative Replace** | `e_gen_replace:from_<obj>;to_<obj>` - Swap specific elements |
 | **Generative Restore** | `e_gen_restore` - Enhance image quality |
 | **AI Vision** | Auto-detect product type for smart prompting |

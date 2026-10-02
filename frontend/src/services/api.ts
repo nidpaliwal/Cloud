@@ -16,7 +16,7 @@ async function handleResponse<T>(response: Response): Promise<T> {
     throw new ApiError(response.status, data.error || data.message || 'Request failed');
   }
   
-  return data;
+  return data.data || data;
 }
 
 export const api = {
