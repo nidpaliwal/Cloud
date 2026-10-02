@@ -167,6 +167,46 @@ docker-compose up --build -d
 | `VITE_API_URL` | Backend URL for frontend | No |
 | `VITE_CLOUDINARY_CLOUD_NAME` | For frontend direct URLs | No |
 
-## License
+## Problem
+
+A single product image needs to be transformed into multiple marketing assets (different scenes, purposes, and styles) for e-commerce, social media, and advertising. Manually creating these variations is time-consuming and requires design skills. Cloudinary's AI generative features automate this process.
+
+## How Cloudinary is Used
+
+This project uses Cloudinary's generative AI features:
+
+- **Generative Fill** (`e_gen_fill:prompt_<prompt>`): Places the product in AI-generated environments (outdoor, studio, lifestyle, etc.)
+- **Format Variants**: Creates multiple aspect ratios and auto-optimized formats (`f_auto`, `q_auto`)
+- **CDN Delivery**: Serves optimized images globally via Cloudinary's CDN
+- **Asset Management**: Uploads, stores, and tracks generated variations with metadata (prompt, scene, purpose, style)
+
+Key API endpoints:
+- `POST /api/upload` - Upload product image to Cloudinary
+- `POST /api/generate` - Start AI generation with prompts for scene/purpose/style
+- `GET /api/generate/:jobId/status` - Poll generation status
+- `POST /api/transform` - Create format variants with aspect ratios
+- `GET /api/asset/:publicId` - Get asset info and metadata
+
+## How to Test
+
+1. **Setup**: Run `npm install`, copy `.env.example` to `.env`, and fill in Cloudinary credentials
+2. **Start**: Run `npm run dev` (backend on port 3001, frontend on port 5173)
+3. **Upload**: Drag and drop a product image or use the drop zone
+4. **Preview**: Verify the image appears with correct Cloudinary URL (`f_auto,q_auto,w_600`)
+5. **Generate**: Select Scene, Purpose, Style, and Variation count, then click "Generate Marketing Assets"
+6. **Results**: Check the gallery for generated assets with download/share buttons
+7. **Compare**: Use the "Before/After Comparison" slider to view original vs generated
+
+Start with **1 variation** first to verify the flow works before generating multiple variations.
+
+## Test Checklist
+
+- [ ] Image uploads successfully and preview loads
+- [ ] Generation starts with no API errors
+- [ ] Generated assets appear in the gallery grid
+- [ ] Each asset has format, scene, and purpose labels
+- [ ] Download and share buttons work
+- [ ] Comparison modal functions correctly
+- [ ] Format variant selection works (aspect ratios)
 
 MIT - Built for Cloudinary AI Hackathon 2026 Track 2
