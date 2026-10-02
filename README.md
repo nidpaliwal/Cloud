@@ -175,7 +175,7 @@ A single product image needs to be transformed into multiple marketing assets (d
 
 This project uses Cloudinary's generative AI features:
 
-- **Generative Fill** (`e_gen_fill:prompt_<prompt>`): Places the product in AI-generated environments (outdoor, studio, lifestyle, etc.)
+- **Generative Background Replace** (`e_gen_background_replace:prompt_<prompt>`): Places the product in AI-generated environments (outdoor, studio, lifestyle, etc.)
 - **Format Variants**: Creates multiple aspect ratios and auto-optimized formats (`f_auto`, `q_auto`)
 - **CDN Delivery**: Serves optimized images globally via Cloudinary's CDN
 - **Asset Management**: Uploads, stores, and tracks generated variations with metadata (prompt, scene, purpose, style)
