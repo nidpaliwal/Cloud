@@ -136,7 +136,11 @@ export function Home() {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">Generated Assets</h2>
-                <p className="text-gray-600 mt-1">{assets.length} variations ready</p>
+                {isGenerating && status ? (
+                  <p className="text-gray-600 mt-1">Generating your variations...</p>
+                ) : (
+                  <p className="text-gray-600 mt-1">{assets.length} variations ready</p>
+                )}
               </div>
               <button 
                 className="btn-secondary" 
@@ -149,7 +153,16 @@ export function Home() {
               </button>
             </div>
             
-            {assets.length > 0 ? (
+            {isGenerating && status ? (
+              <div className="card p-6 mb-8">
+                <h3 className="text-lg font-medium text-gray-900 mb-4">Generating Variations...</h3>
+                <ProgressBar progress={status.progress} label={status.message || 'Processing...'} />
+                <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
+                  <LoadingSpinner size="sm" />
+                  <span>This may take 30-60 seconds</span>
+                </div>
+              </div>
+            ) : assets.length > 0 ? (
               <AssetGallery
                 assets={assets}
                 originalImage={uploadedImage ? { publicId: uploadedImage.publicId, url: uploadedImage.url } : null}
@@ -157,6 +170,13 @@ export function Home() {
                 onShare={() => {}}
                 onCompare={() => {}}
               />
+            ) : genError ? (
+              <div className="card p-4 bg-red-50 border-red-200">
+                <p className="text-red-700">{genError}</p>
+                <button className="mt-3 btn-secondary" onClick={() => setActiveStep('generate')}>
+                  Try Again
+                </button>
+              </div>
             ) : (
               <div className="text-center py-12">
                 <p className="text-gray-500">No assets generated. Go back and try again.</p>
