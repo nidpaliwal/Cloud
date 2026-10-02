@@ -2,7 +2,8 @@
 node_modules/
 
 # See https://github.com/github/gitignore/blob/master/Windows.gitignore
-*.env*
+.env.*
+!.env.example
 
 # See https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 .vscode/

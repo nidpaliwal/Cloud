@@ -30,7 +30,7 @@ export function useGeneration() {
           stopPolling();
           setIsGenerating(false);
         } else if (result.status === 'failed') {
-          setError(result.message || 'Generation failed');
+          setError(result.error || result.message || 'Generation failed');
           stopPolling();
           setIsGenerating(false);
         }

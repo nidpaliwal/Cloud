@@ -189,7 +189,7 @@ Key API endpoints:
 
 ## How to Test
 
-1. **Setup**: Run `npm install`, copy `.env.example` to `.env`, and fill in Cloudinary credentials
+1. **Setup**: Run `npm install`, copy `.env.example` to both `.env` (root) and `backend/.env`, and fill in Cloudinary credentials
 2. **Start**: Run `npm run dev` (backend on port 3001, frontend on port 5173)
 3. **Upload**: Drag and drop a product image or use the drop zone
 4. **Preview**: Verify the image appears with correct Cloudinary URL (`f_auto,q_auto,w_600`)

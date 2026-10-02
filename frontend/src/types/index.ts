@@ -50,5 +50,6 @@ export interface GenerationStatus {
   status: 'pending' | 'processing' | 'completed' | 'failed';
   progress: number;
   message?: string;
+  error?: string;
   assets?: GeneratedAsset[];
 }

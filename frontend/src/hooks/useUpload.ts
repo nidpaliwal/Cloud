@@ -27,7 +27,7 @@ export function useUpload() {
           if (xhr.status >= 200 && xhr.status < 300) {
             try {
               const data = JSON.parse(xhr.responseText);
-              resolve(data);
+              resolve(data.data || data);
             } catch {
               reject(new Error('Invalid response'));
             }
