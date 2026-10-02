@@ -137,7 +137,7 @@ function AssetCard({ asset, index, onDownload, onShare, onCompare, onTransform }
       <div className="p-4 space-y-3">
         <div className="flex items-center justify-between text-sm">
           <span className="text-gray-500">Variation {index}</span>
-          <span className="text-gray-400">{asset.format.toUpperCase()}</span>
+          <span className="text-gray-400">{asset.format ? asset.format.toUpperCase() : 'N/A'}</span>
         </div>
         
         <div className="flex items-center gap-2 text-xs text-gray-500">

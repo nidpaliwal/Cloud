@@ -1,0 +1,18 @@
+# See https://github.com/github/gitignore/blob/master/Node.gitignore
+node_modules/
+
+# See https://github.com/github/gitignore/blob/master/Windows.gitignore
+*.env*
+
+# See https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+.vscode/
+
+# Production build output
+dist/
+build/
+
+# Dependency lock file (optional, keep if you want reproducibility)
+# package-lock.json
+
+# Environment variables
+.env

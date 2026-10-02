@@ -6,12 +6,17 @@ export function getCloudinaryUrl(publicId: string, transformations: Record<strin
     return '';
   }
   
-  const params = new URLSearchParams();
+  const transformParts: string[] = [];
   Object.entries(transformations).forEach(([key, value]) => {
-    params.append(key, value);
+    if (key === 'f') transformParts.push(value);
+    if (key === 'q') transformParts.push(value);
+    if (key === 'w') transformParts.push(`w_${value}`);
+    if (key === 'h') transformParts.push(`h_${value}`);
+    if (key === 'ar') transformParts.push(`ar_${value}`);
+    if (key === 'c') transformParts.push(`c_${value}`);
   });
   
-  const transformString = params.toString() ? `/${params.toString()}` : '';
+  const transformString = transformParts.length > 0 ? `/${transformParts.join(',')}` : '';
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload${transformString}/${publicId}`;
 }
 

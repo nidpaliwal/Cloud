@@ -34,7 +34,7 @@ export const cloudinaryService = {
     } = {}
   ): Promise<UploadApiResponse> {
     const transformation: Record<string, any>[] = [
-      { effect: `gen_fill:prompt_${encodeURIComponent(prompt)}` },
+      { effect: `gen_background_replace:prompt_${encodeURIComponent(prompt.replace(/[ ,;]/g, '_'))}` },
     ];
     
     if (options.aspectRatio) {
