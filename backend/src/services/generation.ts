@@ -56,13 +56,14 @@ export function buildVariationPrompts(options: GenerationPromptOptions, count: n
   
   const variations = [
     '', // Original prompt
-    ' from different angle',
-    ' with different lighting',
-    ' with subtle background elements',
-    ' zoomed out for context',
-    ' close-up detail view',
-    ' with complementary props',
-    ' alternative composition',
+    ' at golden hour with warm sunlight',
+    ' at sunset with a soft pink sky',
+    ' in bright midday light with crisp shadows',
+    ' at night with moody dramatic lighting',
+    ' with a blurred background and shallow depth of field',
+    ' surrounded by vibrant colorful elements',
+    ' on a natural wood and stone surface',
+    ' in soft overcast light with a calm mood',
   ];
   
   return Array.from({ length: count }, (_, i) => 
